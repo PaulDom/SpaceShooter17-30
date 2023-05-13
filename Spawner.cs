@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
     public float interval = 2;
     public float timePassed = 0;
 
+    
+
     void Update()
     {
         timePassed += Time.deltaTime;
@@ -21,7 +23,13 @@ public class Spawner : MonoBehaviour
             postitionSpawn.x = randomX;
             postitionSpawn.z = 0;
 
-            Instantiate(prefabCreate, postitionSpawn, Quaternion.identity);
+            GameObject objecCreate = Instantiate(prefabCreate, postitionSpawn, Quaternion.identity);
+            Vector2 sizeObject = new Vector2(1, 1);
+            float randomSize = Random.Range(0.5f, 1);
+            sizeObject.x = randomSize;
+            sizeObject.y = randomSize;
+
+            objecCreate.transform.localScale = sizeObject;
 
             timePassed = 0;
         }    
