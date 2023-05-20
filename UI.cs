@@ -20,4 +20,10 @@ public class UI : MonoBehaviour
             defeatUI.SetActive(true);
         }
     }
+
+    public void OnClickRestart()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(index);
+    }
 }
